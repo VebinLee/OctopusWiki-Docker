@@ -1,0 +1,28 @@
+services:
+  docconvert:
+    image: vebinlee/docconvert:v1.0
+    container_name: docconvert
+    ports:
+      - "8000:8000"
+    environment:
+      - LOG_LEVEL=error
+    networks:  
+      - traefik_net 
+    restart: unless-stopped
+    # 资源限制（避免 OOM）
+    deploy:
+      resources:
+        limits:
+          memory: 2G  # 最大使用 2GB 内存
+          cpus: '2'  # 最多使用 2 个 CPU 核心
+        reservations:
+          memory: 512M  # 预留 512MB 内存
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-X", "GET", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+networks:  
+  traefik_net:  
+    external: true

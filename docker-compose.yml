@@ -1,0 +1,35 @@
+services:
+  octopuswiki:
+    image: vebinlee/octopuswiki:v1.0
+    container_name: octopuswiki
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      # 数据库目录
+      - ./data:/app/data
+      # Markdown 存放目录
+      - ./md:/app/md
+      - ./plugins:/app/plugins
+    environment:
+      - NODE_ENV=production
+      - TZ=Asia/Shanghai
+    networks:
+      - traefik_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.octopuswiki.rule=Host(`demo.octopuswiki.com`)"
+      - "traefik.http.routers.octopuswiki.entryPoints=websecure"
+      - "traefik.http.routers.octopuswiki.tls=true"
+      - "traefik.http.routers.octopuswiki.tls.certresolver=myresolver"
+      - "traefik.http.routers.octopuswiki.service=octopuswiki"
+      - "traefik.http.services.octopuswiki.loadbalancer.server.port=3000"
+networks:  
+  traefik_net:  
+    external: true
