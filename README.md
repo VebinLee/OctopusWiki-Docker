@@ -249,6 +249,13 @@ OctopusWiki 面向不同使用场景提供差异化授权方式：
 
 ---
 
+## 版本更新
+
+### v1.1
+
+- Markdown AI 工具新增文本翻译、文本润色
+- 修复右侧文件树切换文件与文件夹状态管理同时高亮问题
+
 <p align="center">
   <strong>OctopusWiki</strong> · 让 AI 真正住进你的知识库 🐙
 </p>
