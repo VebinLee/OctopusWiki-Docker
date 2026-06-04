@@ -256,6 +256,7 @@ OctopusWiki 面向不同使用场景提供差异化授权方式：
 - Markdown AI 工具新增文本翻译、文本润色
 - 修复右侧文件树切换文件与文件夹状态管理同时高亮问题
 - 修复文档导入 URL 地址，改用环境变量 `DOCCONVERT_URL`
+- docker-compose.yml 新增 docconvert 服务配置
 
 <p align="center">
   <strong>OctopusWiki</strong> · 让 AI 真正住进你的知识库 🐙
