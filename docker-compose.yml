@@ -14,6 +14,8 @@ services:
     environment:
       - NODE_ENV=production
       - TZ=Asia/Shanghai
+      # 文档转换服务地址
+      - DOCCONVERT_URL=http://docconvert:8000
     networks:
       - traefik_net
     healthcheck:
