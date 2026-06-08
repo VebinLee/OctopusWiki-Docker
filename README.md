@@ -259,6 +259,13 @@ OctopusWiki 面向不同使用场景提供差异化授权方式：
 - 在 `docker-compose.yml` 中新增 docconvert 服务的环境变量配置。
 - 修复文件树中文件夹的右键菜单与“更多”菜单内容不一致的问题。
 
+### v1.2
+
+- 修复后台管理 Logo 名称未随“其他设置 > 品牌设置 > 系统标题”同步更新的问题。
+- 移除 AI 润色与翻译的最大 Token 限制，避免内容输出中断或不完整的情况。
+- AI 润色与翻译时将保留原 Markdown 格式输出。
+- 修复 Markdown 列表中双击回车时的换行异常问题。
+
 
 <p align="center">
   <strong>OctopusWiki</strong> · 让 AI 真正住进你的知识库 🐙
