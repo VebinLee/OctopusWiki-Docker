@@ -1,6 +1,6 @@
 services:
   octopuswiki:
-    image: vebinlee/octopuswiki:v1.4
+    image: vebinlee/octopuswiki:v1.5
     container_name: octopuswiki
     restart: unless-stopped
     ports:
